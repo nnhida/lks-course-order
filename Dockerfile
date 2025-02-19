@@ -8,9 +8,9 @@ ENV PORT=${PORT}
 ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
-COPY . .
+COPY package.json package-lock.json ./
 RUN npm install
-
+COPY . .
 
 EXPOSE ${PORT}
 CMD [ "npm", "run", "start" ]
