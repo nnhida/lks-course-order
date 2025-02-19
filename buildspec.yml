@@ -4,7 +4,7 @@ env:
   variables:
     ECR_REPO: lks-order-image
     ECR_REGION: us-east-1
-    CONTAINER_NAME: 913524916797.dkr.ecr.us-east-1.amazonaws.com
+    CONTAINER_NAME: lks-order-container
 
 phases:
   install:
@@ -29,7 +29,7 @@ phases:
     commands:
       - echo "push the image to ECR.."
       - docker push 913524916797.dkr.ecr.us-east-1.amazonaws.com/lks-order-image:latest
-      - printf '[{"name":"%s","imageUri":"%s"}]' 913524916797.dkr.ecr.us-east-1.amazonaws.com lks-order-image:latest > imagedefinitions.json
+      - printf '[{"name":"lks-order-container","imageUri":"%s"}]' 913524916797.dkr.ecr.us-east-1.amazonaws.com lks-order-image:latest > imagedefinitions.json
       - echo "build complete"
 
 reports:
