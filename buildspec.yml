@@ -41,3 +41,4 @@ artifacts:
     - imagedefinitions.json
     - report/test-result.xml
     - Dockerrun.aws.json
+    - Dockerfile
