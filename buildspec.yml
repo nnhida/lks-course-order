@@ -19,6 +19,12 @@ phases:
       - echo "Run unit testing and build docker image"
       - echo "AWS_ACCESS_KEY="$AWS_ACCESS_KEY >> .env.production
       - echo "AWS_SECRET_KEY="$AWS_SECRET_KEY >> .env.production
+      - echo "AWS_DYNAMODB_TABLE=lks-order-production" >> .env.production
+      - echo "AWS_REGION=us-east-1" >> .env.production
+      - echo "AWS_ACCESS_KEY="$AWS_ACCESS_KEY >> .env.testing
+      - echo "AWS_SECRET_KEY="$AWS_SECRET_KEY >> .env.testing
+      - echo "AWS_DYNAMODB_TABLE=lks-order-testing" >> .env.testing
+      - echo "AWS_REGION=us-east-1" >> .env.testing
       - docker build -t lks-order-image:latest --build-arg NODE_ENV=$NODE_ENV --build-arg PORT=$PORT .
       - docker tag lks-order-image:latest 913524916797.dkr.ecr.us-east-1.amazonaws.com/lks-order-image:latest
   post_build:
